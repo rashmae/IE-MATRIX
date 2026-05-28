@@ -14,7 +14,7 @@ export async function extractSyllabusFromUrl(url: string): Promise<SyllabusData 
       Return a summary of the course description, the main modules/topics covered, the course objectives, and learning outcomes.\n\nPlease return a valid JSON object with the following exactly four keys: "description" (string), "topics" (array of strings), "objectives" (array of strings), "learningOutcomes" (array of strings). Do NOT include any markdown code blocks, just pure raw JSON.`;
 
     const response = await generateContent({
-      model: "gemini-2.0-flash",
+      model: "gemini-3.5-flash",
       contents: prompt,
       config: {
         responseMimeType: "application/json"
@@ -41,7 +41,7 @@ export async function extractSyllabusFromUrl(url: string): Promise<SyllabusData 
 export async function extractSyllabusFromFile(fileBase64: string, mimeType: string): Promise<SyllabusData | null> {
   try {
     const response = await generateContent({
-      model: "gemini-2.0-flash",
+      model: "gemini-3.5-flash",
       contents: [
         {
           role: "user",

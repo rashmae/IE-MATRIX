@@ -1,6 +1,6 @@
 import { GoogleGenAI } from "@google/genai";
 
-export const DEFAULT_GEMINI_MODEL = "gemini-2.0-flash";
+export const DEFAULT_GEMINI_MODEL = "gemini-3.5-flash";
 export const DEFAULT_GROQ_MODEL = "llama3-8b-8192";
 export const DEFAULT_OPENROUTER_MODEL = "mistralai/mistral-7b-instruct:free";
 

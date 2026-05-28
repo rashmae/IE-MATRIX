@@ -71,7 +71,7 @@ async function startServer() {
   let globalBlockedUntil = 0;
 
   app.post("/api/ai/generate", async (req, res) => {
-    const { prompt, systemInstruction, responseMimeType, model = "gemini-2.0-flash", contents, config } = req.body;
+    const { prompt, systemInstruction, responseMimeType, model = "gemini-3.5-flash", contents, config } = req.body;
     
     // Check global block first
     const now = Date.now();
