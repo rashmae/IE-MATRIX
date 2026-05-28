@@ -13,12 +13,12 @@
   --font-accent: "Space Grotesk", sans-serif;
   --font-syne: "Syne", sans-serif;
 
-  --color-ctu-maroon: #f064a3;
-  --color-ctu-gold: #925dfc;
-  --color-navy-deep: #151824;
-  --color-cream-soft: #fdf2f7;
-  --color-glass-bg: rgba(255, 255, 255, 0.12);
-  --color-glass-border: rgba(255, 255, 255, 0.2);
+  --color-ctu-maroon: var(--primary);
+  --color-ctu-gold: var(--accent);
+  --color-navy-deep: var(--background);
+  --color-cream-soft: var(--card);
+  --color-glass-bg: rgba(31, 111, 235, 0.08);
+  --color-glass-border: rgba(31, 111, 235, 0.15);
 
   --radius-inherit: inherit;
   --radius-4xl: 2rem;
@@ -44,93 +44,93 @@
 
 @layer base {
   :root {
-    --card: #fdedc9;
-    --ring: #e670ab;
-    --input: #e4e4e4;
-    --muted: #b2e1eb;
-    --accent: #fbe2a7;
-    --border: #d04f99;
+    --card: #f6f8fa;
+    --ring: #0969da;
+    --input: #e6edf3;
+    --muted: #f6f8fa;
+    --accent: #218bff;
+    --border: #d0d7de;
     --radius: 0.4rem;
-    --chart-1: #e670ab;
-    --chart-2: #84d2e2;
-    --chart-3: #fbe2a7;
-    --chart-4: #f3a0ca;
-    --chart-5: #d7488e;
+    --chart-1: #0969da;
+    --chart-2: #218bff;
+    --chart-3: #1f6feb;
+    --chart-4: #10b981;
+    --chart-5: #3b82f6;
     --popover: #ffffff;
-    --primary: #d04f99;
-    --sidebar: #f8d8ea;
+    --primary: #0969da;
+    --sidebar: #f6f8fa;
     --font-mono: Fira Code, monospace;
     --font-sans: Poppins, sans-serif;
-    --secondary: #8acfd1;
-    --background: #f6e6ee;
+    --secondary: #0d1117;
+    --background: #ffffff;
     --font-serif: Lora, serif;
-    --foreground: #5b5b5b;
-    --destructive: #f96f70;
+    --foreground: #0d1117;
+    --destructive: #ef4444;
     --shadow-blur: 0px;
-    --shadow-color: hsl(325.78 58.18% 56.86% / 0.5);
-    --sidebar-ring: #ec4899;
+    --shadow-color: rgba(148, 163, 184, 0.15);
+    --sidebar-ring: #0969da;
     --shadow-spread: 0px;
     --shadow-opacity: 1.0;
-    --sidebar-accent: #f9a8d4;
-    --sidebar-border: #f3e8ff;
-    --card-foreground: #5b5b5b;
+    --sidebar-accent: #e6edf3;
+    --sidebar-border: #d0d7de;
+    --card-foreground: #0d1117;
     --shadow-offset-x: 3px;
     --shadow-offset-y: 3px;
-    --sidebar-primary: #ec4899;
-    --muted-foreground: #7a7a7a;
-    --accent-foreground: #333333;
-    --popover-foreground: #5b5b5b;
+    --sidebar-primary: #0969da;
+    --muted-foreground: #57606a;
+    --accent-foreground: #ffffff;
+    --popover-foreground: #0d1117;
     --primary-foreground: #ffffff;
-    --sidebar-foreground: #333333;
-    --secondary-foreground: #333333;
+    --sidebar-foreground: #0d1117;
+    --secondary-foreground: #ffffff;
     --destructive-foreground: #ffffff;
-    --sidebar-accent-foreground: #333333;
+    --sidebar-accent-foreground: #0d1117;
     --sidebar-primary-foreground: #ffffff;
 
-    --shadow-light: rgba(255, 255, 255, 1);
-    --shadow-dark: rgba(220, 200, 215, 0.6);
+    --shadow-light: #ffffff;
+    --shadow-dark: rgba(140, 149, 159, 0.15);
   }
 
   .dark {
-    --card: #1c2e38;
-    --ring: #50afb6;
-    --input: #20333d;
-    --muted: #24272b;
-    --accent: #c67b96;
-    --border: #324859;
-    --chart-1: #50afb6;
-    --chart-2: #e4a2b1;
-    --chart-3: #c67b96;
-    --chart-4: #175c6c;
-    --chart-5: #24272b;
-    --popover: #1c2e38;
-    --primary: #fbe2a7;
-    --sidebar: #101f28;
+    --card: #161b27;
+    --ring: #1f6feb;
+    --input: #21262d;
+    --muted: #161b27;
+    --accent: #388bfd;
+    --border: #30363d;
+    --chart-1: #1f6feb;
+    --chart-2: #388bfd;
+    --chart-3: #e6edf3;
+    --chart-4: #34d399;
+    --chart-5: #60a5fa;
+    --popover: #161b27;
+    --primary: #1f6feb;
+    --sidebar: #0d1117;
     --font-mono: Fira Code, monospace;
     --font-sans: Poppins, sans-serif;
-    --secondary: #e4a2b1;
-    --background: #12242e;
+    --secondary: #e6edf3;
+    --background: #0d1117;
     --font-serif: Lora, serif;
-    --foreground: #f3e3ea;
-    --destructive: #e35ea4;
-    --shadow-color: #324859;
-    --sidebar-ring: #ec4899;
-    --sidebar-accent: #f9a8d4;
-    --sidebar-border: #374151;
-    --card-foreground: #f3e3ea;
-    --sidebar-primary: #ec4899;
-    --muted-foreground: #e4a2b1;
-    --accent-foreground: #f3e3ea;
-    --popover-foreground: #f3e3ea;
-    --primary-foreground: #12242e;
-    --sidebar-foreground: #f3f4f6;
-    --secondary-foreground: #12242e;
-    --destructive-foreground: #12242e;
-    --sidebar-accent-foreground: #1f2937;
-    --sidebar-primary-foreground: #ffffff;
+    --foreground: #e6edf3;
+    --destructive: #f85149;
+    --shadow-color: rgba(0, 0, 0, 0.4);
+    --sidebar-ring: #1f6feb;
+    --sidebar-accent: #161b27;
+    --sidebar-border: #21262d;
+    --card-foreground: #e6edf3;
+    --sidebar-primary: #1f6feb;
+    --muted-foreground: #8b949e;
+    --accent-foreground: #ffffff;
+    --popover-foreground: #e6edf3;
+    --primary-foreground: #0d1117;
+    --sidebar-foreground: #e6edf3;
+    --secondary-foreground: #ffffff;
+    --destructive-foreground: #ffffff;
+    --sidebar-accent-foreground: #ffffff;
+    --sidebar-primary-foreground: #0d1117;
 
-    --shadow-light: rgba(255, 255, 255, 0.05);
-    --shadow-dark: rgba(0, 0, 0, 0.5);
+    --shadow-light: rgba(255, 255, 255, 0.02);
+    --shadow-dark: rgba(0, 0, 0, 0.65);
   }
 
   body {
@@ -165,7 +165,7 @@
 
 .frosted-header {
   font-family: "Outfit", sans-serif;
-  background: linear-gradient(to right, var(--color-foreground), #925dfc, #f064a3);
+  background: linear-gradient(to right, var(--color-foreground), var(--color-ctu-gold), var(--color-ctu-maroon));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -182,15 +182,15 @@
 }
 
 .ctu-gradient {
-  background: linear-gradient(135deg, #8B1A1A 0%, #D4A017 100%);
+  background: linear-gradient(135deg, var(--color-ctu-maroon) 0%, var(--color-ctu-gold) 100%);
 }
 
 .ctu-mesh {
-  background-color: #8B1A1A;
+  background-color: var(--color-ctu-maroon);
   background-image: 
-    radial-gradient(at 0% 0%, hsla(45,80%,46%,1) 0, transparent 50%), 
-    radial-gradient(at 50% 0%, hsla(0,68%,32%,1) 0, transparent 50%), 
-    radial-gradient(at 100% 0%, hsla(45,80%,46%,1) 0, transparent 50%);
+    radial-gradient(at 0% 0%, var(--color-ctu-gold) 0, transparent 50%), 
+    radial-gradient(at 50% 0%, var(--color-ctu-maroon) 0, transparent 50%), 
+    radial-gradient(at 100% 0%, var(--color-ctu-gold) 0, transparent 50%);
 }
 
 .loader {

@@ -122,6 +122,7 @@ import { useAuth } from '@/src/context/AuthContext';
 import { useProgress } from '@/src/hooks/useProgress';
 import NotebookList from '@/src/components/notebook/NotebookList';
 import NotebookWorkspace from '@/src/components/notebook/NotebookWorkspace';
+import PomodoroTimer from '@/src/components/study/PomodoroTimer';
 import ReactMarkdown from 'react-markdown';
 
 // Session Types
@@ -1021,6 +1022,7 @@ export default function StudyTools() {
                 { id: 'flashcards', icon: BookOpen, label: 'Recall' },
                 { id: 'quizzes', icon: Award, label: 'Quizzes' },
                 { id: 'notebooks', icon: FolderOpen, label: 'Vault' },
+                { id: 'focus', icon: Timer, label: 'Pomodoro' },
               ].map(tab => (
                 <TabsTrigger
                   key={tab.id}
@@ -2325,6 +2327,26 @@ export default function StudyTools() {
                 ) : (
                   <NotebookList onSelect={(id) => setActiveNotebookId(id)} />
                 )}
+            </motion.div>
+          </TabsContent>
+
+          <TabsContent value="focus" className="mt-0 focus:outline-none space-y-8 sm:space-y-16 outline-none">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.3 }}
+              className="space-y-8"
+            >
+              <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 sm:gap-10 border-b border-foreground/5 pb-6">
+                <div>
+                  <h2 className="text-2xl sm:text-4xl md:text-5xl frosted-header font-black tracking-tighter leading-[0.9] py-1 sm:py-2 flex items-center flex-wrap gap-3 sm:gap-6">
+                     Pomodoro Focus <Timer size={24} className="text-ctu-gold shrink-0 sm:size-20 animate-pulse" />
+                  </h2>
+                  <p className="text-sm sm:text-base md:text-xl text-foreground/40 font-medium mt-1 sm:mt-2 tracking-tight">Optimize your mental output, align posturings, and eliminate task waste.</p>
+                </div>
+              </div>
+              <PomodoroTimer />
             </motion.div>
           </TabsContent>
         </Tabs>
