@@ -13,6 +13,7 @@ import { LogIn, BookOpen, Sparkles, Shield, GraduationCap, ChevronRight } from '
 import ThemeToggle from '@/src/components/ThemeToggle';
 import { useAuth } from '@/src/context/AuthContext';
 import { handleFirestoreError } from '@/src/lib/firestore-errors';
+import IEMatrixLogo from '@/src/components/IEMatrixLogo';
 
 import { 
   Select, 
@@ -164,36 +165,17 @@ export default function Login() {
             </div>
           </div>
 
-          {/* Realistic AI/Robot Mascot (Repositioned Lower) */}
-          <div className="relative w-48 h-48 group mt-12 mb-8">
-            <div className="absolute inset-0 bg-ctu-gold/30 rounded-full blur-3xl animate-pulse" />
-            <div className="relative w-full h-full neumorphic-raised rounded-full p-1.5 flex items-center justify-center bg-background overflow-hidden border border-white/10">
-              {/* Outer Rings */}
-              <div className="absolute inset-0 border-2 border-ctu-gold/30 rounded-full animate-[spin_10s_linear_infinite]" />
-              <div className="absolute inset-4 border border-ctu-maroon/20 rounded-full animate-[spin_15s_linear_infinite_reverse]" />
-              
-              {/* Core AI Eye */}
-              <div className="relative w-32 h-32 rounded-full bg-gradient-to-br from-ctu-gold via-ctu-maroon to-navy-deep flex items-center justify-center shadow-inner overflow-hidden">
-                <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.2)_0%,transparent_70%)]" />
-                <motion.div 
-                  animate={{ scale: [1, 1.1, 1], opacity: [0.8, 1, 0.8] }}
-                  transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-                  className="w-16 h-16 rounded-full bg-white shadow-[0_0_30px_rgba(255,255,255,0.8)] flex items-center justify-center"
-                >
-                  <div className="w-8 h-8 rounded-full bg-navy-deep flex items-center justify-center">
-                    <div className="w-3 h-3 rounded-full bg-ctu-gold animate-ping" />
-                  </div>
-                </motion.div>
-                <div className="absolute inset-0 w-full h-2 bg-white/20 blur-sm animate-[scan_4s_linear_infinite]" />
-              </div>
-            </div>
+          {/* Authentic High-Fidelity 3D Isometric Logo Exhibit */}
+          <div className="relative w-40 h-40 group mt-12 mb-8 flex items-center justify-center">
+            <div className="absolute inset-0 bg-emerald-500/20 rounded-full blur-3xl animate-pulse" />
+            <IEMatrixLogo size={90} className="relative z-10" />
 
             {/* Floating Stat Badges */}
             <motion.div 
               initial={{ x: -20, opacity: 0 }}
               animate={{ x: 0, opacity: 1 }}
               transition={{ delay: 1.2 }}
-              className="absolute -left-20 top-0 glass-card px-4 py-2 flex items-center gap-2 shadow-2xl scale-90"
+              className="absolute -left-16 top-0 glass-card px-4 py-2 flex items-center gap-2 shadow-2xl scale-90"
             >
               <div className="p-1.5 bg-ctu-gold/20 rounded-lg text-ctu-gold">
                 <BookOpen size={14} />
@@ -205,9 +187,9 @@ export default function Login() {
               initial={{ x: 20, opacity: 0 }}
               animate={{ x: 0, opacity: 1 }}
               transition={{ delay: 1.4 }}
-              className="absolute -right-20 top-20 glass-card px-4 py-2 flex items-center gap-2 shadow-2xl scale-90"
+              className="absolute -right-16 top-16 glass-card px-4 py-2 flex items-center gap-2 shadow-2xl scale-90"
             >
-              <div className="p-1.5 bg-ctu-maroon/20 rounded-lg text-ctu-maroon">
+              <div className="p-1.5 bg-emerald-500/20 rounded-lg text-emerald-400">
                 <Sparkles size={14} />
               </div>
               <span className="text-[10px] font-bold uppercase tracking-tighter">AI-Powered</span>
@@ -217,7 +199,7 @@ export default function Login() {
               initial={{ y: 20, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ delay: 1.6 }}
-              className="absolute left-1/2 -translate-x-1/2 -bottom-6 glass-card px-4 py-2 flex items-center gap-2 shadow-2xl scale-90"
+              className="absolute left-1/2 -translate-x-1/2 -bottom-4 glass-card px-4 py-2 flex items-center gap-2 shadow-2xl scale-90"
             >
               <div className="p-1.5 bg-foreground/10 rounded-lg text-foreground">
                 <Shield size={14} />
@@ -233,7 +215,11 @@ export default function Login() {
       </div>
 
       {/* Mobile Branding */}
-      <div className="md:hidden pt-16 pb-8 text-center z-10 space-y-4 flex flex-col items-center">
+      <div className="md:hidden pt-16 pb-6 text-center z-10 space-y-4 flex flex-col items-center">
+         <div className="relative shrink-0 mb-1">
+           <div className="absolute inset-0 bg-emerald-500/15 rounded-full blur-2xl animate-pulse" />
+           <IEMatrixLogo size={60} className="relative z-10" />
+         </div>
          <motion.div
            initial={{ opacity: 0, scale: 0.8 }}
            animate={{ opacity: 1, scale: 1 }}

@@ -240,10 +240,10 @@ export default function Dashboard() {
         <MobileHeader />
 
         {/* Enhanced Header Section */}
-        <div className="flex flex-col xl:flex-row xl:items-center justify-between gap-10 mb-12 p-8 sm:p-10 rounded-[2.5rem] bg-foreground/[0.02] border border-white/5 neumorphic-raised relative overflow-hidden group/header transition-all duration-500">
+        <div className="flex flex-col xl:flex-row xl:items-center justify-between gap-10 mb-12 p-8 sm:p-10 rounded-[2.5rem] bg-gradient-to-br from-ctu-maroon/[0.05] via-background to-ctu-gold/[0.05] dark:from-[#1d1214] dark:via-[#090d14] dark:to-[#04261a] border border-ctu-maroon/20 dark:border-emerald-500/20 shadow-xl relative overflow-hidden group/header transition-all duration-500">
           {/* Decorative Polish */}
-          <div className="absolute -right-24 -top-24 w-80 h-80 bg-ctu-gold/5 rounded-full blur-[100px] opacity-0 group-hover/header:opacity-100 transition-opacity duration-1000 pointer-events-none" />
-          <div className="absolute -left-24 -bottom-24 w-80 h-80 bg-ctu-maroon/5 rounded-full blur-[100px] opacity-0 group-hover/header:opacity-100 transition-opacity duration-1000 pointer-events-none" />
+          <div className="absolute -right-24 -top-24 w-80 h-80 bg-ctu-gold/10 dark:bg-ctu-gold/5 rounded-full blur-[100px] group-hover/header:scale-x-110 transition-transform duration-1000 pointer-events-none" />
+          <div className="absolute -left-24 -bottom-24 w-80 h-80 bg-ctu-maroon/10 dark:bg-ctu-maroon/5 rounded-full blur-[100px] group-hover/header:scale-x-110 transition-transform duration-1000 pointer-events-none" />
           
           <motion.div
             initial={{ x: -20, opacity: 0 }}
@@ -252,15 +252,15 @@ export default function Dashboard() {
           >
             <div className="flex flex-col">
               <div className="flex items-center gap-3 mb-2">
-                <span className="flex h-2 w-2 rounded-full bg-emerald-500 animate-pulse shadow-[0_0_10px_rgba(16,185,129,0.8)]" />
-                <span className="text-[10px] font-black uppercase tracking-[0.3em] text-ctu-gold/60 leading-none">MATRIX ONLINE</span>
+                <span className="flex h-2 w-2 rounded-full bg-emerald-400 animate-pulse shadow-[0_0_10px_rgba(52,211,153,0.8)]" />
+                <span className="text-[10px] font-black uppercase tracking-[0.3em] text-ctu-gold dark:text-ctu-gold/80 leading-none">MATRIX ONLINE</span>
               </div>
               <h1 
                 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl frosted-header font-black tracking-tighter transition-all duration-500 hover:[text-shadow:_0_1px_40px_rgba(212,175,55,0.3)] leading-none"
               >
-                {getGreeting()}, <span className="text-ctu-gold">{profile.fullName.split(' ')[0]}</span> 👋
+                {getGreeting()}, <span className="text-ctu-gold hover:text-emerald-400 cursor-default transition-all duration-300">{profile.fullName.split(' ')[0]}</span> 👋
               </h1>
-              <p className="text-foreground/40 mt-3 text-xs sm:text-base md:text-xl font-medium tracking-tight max-w-lg leading-relaxed">
+              <p className="text-foreground/45 dark:text-foreground/60 mt-3 text-xs sm:text-base md:text-xl font-medium tracking-tight max-w-lg leading-relaxed">
                 Welcome back to your Industrial Engineering portal. Here's your current curriculum overview.
               </p>
             </div>

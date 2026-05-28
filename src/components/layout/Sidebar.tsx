@@ -35,6 +35,7 @@ const navItems = [
 import ThemeToggle from '@/src/components/ThemeToggle';
 import NotificationCenter from './NotificationCenter';
 import { toast } from 'sonner';
+import IEMatrixLogo from '../IEMatrixLogo';
 
 import { auth } from '@/src/lib/firebase';
 import { signOut } from 'firebase/auth';
@@ -64,29 +65,14 @@ export default function Sidebar({ user, hideBranding = false, hideActions = fals
         <div className="p-8 pb-3 flex flex-col gap-6">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-4">
-              {/* AI Robot Logo in Sidebar - Enhanced with technical rotation */}
-              <div className="relative w-12 h-12 shrink-0 group cursor-pointer" aria-hidden="true" onClick={() => navigate('/dashboard')}>
-                <div className="absolute inset-0 bg-ctu-gold/40 rounded-2xl blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
-                <div className="relative w-full h-full neumorphic-raised rounded-2xl p-1 flex items-center justify-center bg-background overflow-hidden border border-white/10 group-active:neumorphic-pressed transition-all">
-                  <div className="absolute inset-x-0 top-1/2 h-[1px] bg-ctu-gold/20 -translate-y-1/2 rotate-[15deg] group-hover:rotate-[195deg] transition-transform duration-1000" />
-                  <div className="absolute inset-y-0 left-1/2 w-[1px] bg-ctu-gold/20 -translate-x-1/2 -rotate-[15deg] group-hover:rotate-[-195deg] transition-transform duration-1000" />
-                  
-                  <div className="relative w-8 h-8 rounded-xl bg-gradient-to-br from-ctu-gold via-ctu-maroon to-navy-deep flex items-center justify-center shadow-inner overflow-hidden border border-white/20">
-                    <motion.div 
-                      animate={{ 
-                        scale: [1, 1.15, 1], 
-                        rotate: [0, 5, -5, 0],
-                        filter: ['brightness(1)', 'brightness(1.2)', 'brightness(1)']
-                      }}
-                      transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                      className="w-5 h-5 rounded-lg bg-white/90 shadow-[0_0_15px_rgba(255,255,255,0.6)] flex items-center justify-center"
-                    >
-                      <div className="w-2.5 h-2.5 rounded-sm bg-navy-deep flex items-center justify-center">
-                        <div className="w-1 h-1 rounded-full bg-ctu-gold animate-ping" />
-                      </div>
-                    </motion.div>
-                  </div>
-                </div>
+              {/* Custom High-fidelity Isometric 3D Branding Logo in Sidebar */}
+              <div 
+                className="relative shrink-0 cursor-pointer" 
+                aria-hidden="true" 
+                onClick={() => navigate('/dashboard')}
+              >
+                <div className="absolute inset-0 bg-emerald-500/20 rounded-full blur-xl" />
+                <IEMatrixLogo size={56} className="relative z-10" />
               </div>
 
               <div className="flex flex-col">
@@ -95,7 +81,7 @@ export default function Sidebar({ user, hideBranding = false, hideActions = fals
                   <span className="absolute -right-6 -top-1 px-1 py-0.5 bg-ctu-maroon/10 text-[7px] text-ctu-maroon rounded border border-ctu-maroon/20 font-black">v2.0</span>
                 </span>
                 <span className="text-[9px] font-black uppercase tracking-[0.3em] text-foreground/40 mt-1.5 flex items-center gap-1.5 leading-none">
-                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 shadow-[0_0_8px_rgba(16,185,129,0.6)]" />
+                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 shadow-[0_0_8px_rgba(16,185,129,0.6)] animate-pulse" />
                   System Secure
                 </span>
               </div>

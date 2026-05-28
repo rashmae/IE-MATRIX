@@ -677,11 +677,7 @@ export default function Catalog() {
         <Sidebar user={null} />
         <main className="flex-1 p-4 sm:p-6 lg:p-10 pb-36 lg:pb-10 overflow-x-hidden">
           <HeaderSkeleton />
-          <div className="flex flex-col lg:flex-row gap-8">
-            <aside className="hidden lg:block w-72 shrink-0 space-y-6">
-              <StatSkeleton />
-              <StatSkeleton />
-            </aside>
+          <div className="space-y-8">
             <div className="flex-1">
               <GridSkeleton count={6} />
             </div>
@@ -865,27 +861,7 @@ export default function Catalog() {
           )}
         </AnimatePresence>
 
-        <div className="flex flex-col lg:flex-row gap-8">
-          {/* Desktop Sidebar Filters */}
-          <aside className="hidden lg:block w-72 shrink-0 space-y-6">
-            <div className="sticky top-10">
-              <div className="flex items-center justify-between mb-6">
-                <h3 className="text-lg font-bold flex items-center gap-2">
-                  <Filter size={18} className="text-ctu-gold" />
-                  Filters
-                </h3>
-                {activeFilterCount > 0 && (
-                  <Badge className="bg-ctu-gold text-white font-bold rounded-full h-5 w-5 flex items-center justify-center p-0">
-                    {activeFilterCount}
-                  </Badge>
-                )}
-              </div>
-              <ScrollArea className="h-[calc(100vh-200px)] pr-4 -mr-4">
-                <FilterPanelContent />
-              </ScrollArea>
-            </div>
-          </aside>
-
+        <div className="space-y-8">
           <div className="flex-1 space-y-8">
             {/* Search History */}
             {searchHistory.length > 0 && (

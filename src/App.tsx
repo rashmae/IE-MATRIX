@@ -23,12 +23,14 @@ import RatingsIngestion from './pages/RatingsIngestion';
 import SpotlightDemo from './pages/SpotlightDemo';
 import StudyTools from './pages/StudyTools';
 import AIAssistant from './components/AIAssistant';
+import MatrixBackground from './components/layout/MatrixBackground';
 
 export default function App() {
   return (
     <Router>
       <FirebaseErrorBoundary>
         <AuthProvider>
+          <MatrixBackground />
           <a 
             href="#main-content" 
             className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-100 focus:px-4 focus:py-2 focus:bg-ctu-gold focus:text-white focus:rounded-lg focus:font-bold focus:shadow-xl"
