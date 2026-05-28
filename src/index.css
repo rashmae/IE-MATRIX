@@ -44,13 +44,13 @@
 
 @layer base {
   :root {
-    --card: #f8fafc;
+    --card: #ffffff;
     --ring: #10b981;
-    --input: #e2e8f0;
-    --muted: #f1f5f9;
+    --input: #f1f5f9;
+    --muted: #f8fafc;
     --accent: #fbbf24;
-    --border: #cbd5e1;
-    --radius: 0.5rem;
+    --border: #f1f5f9;
+    --radius: 1.25rem;
     --chart-1: #059669;
     --chart-2: #fbbf24;
     --chart-3: #10b981;
@@ -62,33 +62,33 @@
     --font-mono: Fira Code, monospace;
     --font-sans: Poppins, sans-serif;
     --secondary: #0f172a;
-    --background: #ffffff;
+    --background: #f3f4fa; /* Ultra-polished pastel lavender-gray background matching the photo */
     --font-serif: Lora, serif;
-    --foreground: #0f172a;
+    --foreground: #1e2433;
     --destructive: #ef4444;
     --shadow-blur: 0px;
-    --shadow-color: rgba(148, 163, 184, 0.12);
+    --shadow-color: rgba(100, 116, 139, 0.06);
     --sidebar-ring: #10b981;
     --shadow-spread: 0px;
     --shadow-opacity: 1.0;
-    --sidebar-accent: #f1f5f9;
-    --sidebar-border: #cbd5e1;
-    --card-foreground: #0f172a;
+    --sidebar-accent: #f0f2f8;
+    --sidebar-border: #e2e8f0;
+    --card-foreground: #1e2433;
     --shadow-offset-x: 3px;
     --shadow-offset-y: 3px;
     --sidebar-primary: #059669;
     --muted-foreground: #64748b;
-    --accent-foreground: #0f172a;
-    --popover-foreground: #0f172a;
+    --accent-foreground: #1e2433;
+    --popover-foreground: #1e2433;
     --primary-foreground: #ffffff;
-    --sidebar-foreground: #0f172a;
+    --sidebar-foreground: #1e2433;
     --secondary-foreground: #ffffff;
     --destructive-foreground: #ffffff;
-    --sidebar-accent-foreground: #0f172a;
+    --sidebar-accent-foreground: #1e2433;
     --sidebar-primary-foreground: #ffffff;
 
     --shadow-light: #ffffff;
-    --shadow-dark: rgba(148, 163, 184, 0.15);
+    --shadow-dark: rgba(148, 163, 184, 0.12);
   }
 
   .dark {
@@ -368,65 +368,86 @@
  * ==========================================
  */
 
+/* 
+ * ==========================================
+ * CYBER MATRIX GRID LAYOUTS & BACKGROUNDS
+ * ==========================================
+ */
+
 /* Style main content elements with ambient grids and green code lines */
 main#main-content, main {
   position: relative;
+  border-radius: 2.2rem 2.2rem 0px 0px;
   background-image: 
-    radial-gradient(ellipse at top, rgba(16, 185, 129, 0.06) 0%, transparent 60%),
-    linear-gradient(to right, rgba(16, 185, 129, 0.04) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(16, 185, 129, 0.04) 1px, transparent 1px);
+    radial-gradient(ellipse at top, rgba(16, 185, 129, 0.04) 0%, transparent 60%),
+    linear-gradient(to right, rgba(16, 185, 129, 0.02) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(16, 185, 129, 0.02) 1px, transparent 1px);
   background-size: 100% 100%, 28px 28px, 28px 28px;
   background-repeat: no-repeat, repeat, repeat;
   background-position: center top, center top, center top;
   backdrop-filter: blur(2px);
-  transition: background 0.5s ease;
+  transition: background 0.5s ease, border-radius 0.3s ease;
 }
 
 .dark main#main-content, .dark main {
   background-image: 
-    radial-gradient(ellipse at top, rgba(16, 185, 129, 0.12) 0%, transparent 70%),
-    linear-gradient(to right, rgba(52, 211, 153, 0.025) 1.5px, transparent 1.5px),
-    linear-gradient(to bottom, rgba(52, 211, 153, 0.025) 1.5px, transparent 1.5px);
+    radial-gradient(ellipse at top, rgba(16, 185, 129, 0.1) 0%, transparent 70%),
+    linear-gradient(to right, rgba(52, 211, 153, 0.02) 1.5px, transparent 1.5px),
+    linear-gradient(to bottom, rgba(52, 211, 153, 0.02) 1.5px, transparent 1.5px);
   background-size: 100% 100%, 32px 32px, 32px 32px;
 }
 
 /* Semi-translucent pages to let Canvas Matrix show through in the background */
 .min-h-screen.bg-background {
-  background-color: rgba(255, 255, 255, 0.82) !important;
-  backdrop-filter: blur(1px);
+  background-color: rgba(243, 244, 250, 0.72) !important;
+  backdrop-filter: blur(2px);
 }
 
 .dark .min-h-screen.bg-background {
-  background-color: rgba(9, 13, 20, 0.85) !important;
-  backdrop-filter: blur(1px);
+  background-color: rgba(8, 11, 17, 0.78) !important;
+  backdrop-filter: blur(2px);
 }
 
-/* Neumorphic containers blending with the matrix glowing green vibe */
+/* Beautiful ultra-rounded card styling inspired by the task manager reference dashboard */
 .neumorphic-card {
   position: relative;
   overflow: hidden;
-  border: 1px solid rgba(16, 185, 129, 0.08) !important;
-  background-color: rgba(255, 255, 255, 0.9) !important;
+  border-radius: 2.2rem !important; /* Premium curved nodes matching photo */
+  border: 1px solid rgba(255, 255, 255, 0.95) !important;
+  background-color: rgba(255, 255, 255, 0.95) !important;
+  box-shadow: 
+    0 24px 48px -12px rgba(103, 110, 144, 0.08),
+    0 8px 16px -8px rgba(103, 110, 144, 0.04),
+    -4px -4px 12px rgba(255, 255, 255, 0.8) !important;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .dark .neumorphic-card {
-  background-color: rgba(12, 18, 29, 0.8) !important;
-  border: 1px solid rgba(52, 211, 153, 0.1) !important;
+  background-color: rgba(14, 20, 31, 0.92) !important;
+  border: 1px solid rgba(255, 255, 255, 0.04) !important;
   box-shadow: 
-    0 10px 25px -15px rgba(0, 0, 0, 0.7),
-    inset 0 1px 1px rgba(255, 255, 255, 0.05);
+    0 24px 48px -12px rgba(0, 0, 0, 0.6),
+    0 6px 12px -6px rgba(0, 0, 0, 0.3),
+    inset 0 1px 1px rgba(255, 255, 255, 0.02) !important;
+}
+
+/* Active Pill indicators matching tasks list cards */
+.reference-pill-link {
+  border-radius: 9999px !important;
+  box-shadow: 0 4px 12px rgba(133, 34, 34, 0.12);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* Subtle corner ticks decorative element to enhance high tech military/matrix drafting theme */
 main#main-content::before {
   content: '';
   position: absolute;
-  top: 10px;
-  left: 10px;
-  width: 15px;
-  height: 15px;
-  border-top: 2px solid rgba(16, 185, 129, 0.4);
-  border-left: 2px solid rgba(16, 185, 129, 0.4);
+  top: 15px;
+  left: 15px;
+  width: 20px;
+  height: 20px;
+  border-top: 2.5px solid rgba(16, 185, 129, 0.3);
+  border-left: 2.5px solid rgba(16, 185, 129, 0.3);
   pointer-events: none;
   z-index: 10;
 }
@@ -434,12 +455,12 @@ main#main-content::before {
 main#main-content::after {
   content: '';
   position: absolute;
-  top: 10px;
-  right: 10px;
-  width: 15px;
-  height: 15px;
-  border-top: 2px solid rgba(16, 185, 129, 0.4);
-  border-right: 2px solid rgba(16, 185, 129, 0.4);
+  top: 15px;
+  right: 15px;
+  width: 20px;
+  height: 20px;
+  border-top: 2.5px solid rgba(16, 185, 129, 0.3);
+  border-right: 2.5px solid rgba(16, 185, 129, 0.3);
   pointer-events: none;
   z-index: 10;
 }

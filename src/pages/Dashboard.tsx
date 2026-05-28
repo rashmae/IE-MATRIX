@@ -630,18 +630,19 @@ export default function Dashboard() {
           <div className="space-y-8">
             {/* Recent Notifications */}
             <motion.div variants={itemVariants}>
-              <Card className="neumorphic-card border-none">
-                <CardHeader className="pb-6 border-b border-foreground/5 mb-6 flex flex-row items-center justify-between">
-                  <CardTitle className="text-3xl font-black text-ctu-maroon uppercase tracking-[0.2em]">
-                    Alerts
+              <Card className="neumorphic-card border-none overflow-hidden pb-4">
+                <CardHeader className="bg-gradient-to-r from-ctu-maroon to-rose-700 text-white rounded-t-[2.1rem] border-b-4 border-ctu-gold relative overflow-hidden py-5 px-6 mb-6 flex flex-row items-center justify-between shadow-md">
+                  <CardTitle className="text-xs sm:text-sm font-black uppercase tracking-[0.2em] flex items-center gap-2">
+                    <span className="flex h-2 w-2 rounded-full bg-emerald-400 animate-pulse shadow-[0_0_8px_rgba(52,211,153,0.8)]" />
+                    Alerts Center
                   </CardTitle>
                   <Button 
                     variant="ghost" 
                     size="sm" 
                     onClick={() => navigate('/notifications')}
-                    className="text-[10px] font-black uppercase tracking-widest text-foreground/40 hover:text-ctu-maroon"
+                    className="text-[10px] font-black uppercase tracking-widest text-white/90 hover:text-white hover:bg-white/10 border border-white/20 rounded-full px-4 h-7 transition-all duration-300 active:scale-95 whitespace-nowrap"
                   >
-                    View All
+                    All Alerts
                   </Button>
                 </CardHeader>
                 <CardContent>
@@ -649,15 +650,23 @@ export default function Dashboard() {
                 </CardContent>
               </Card>
             </motion.div>
-
+ 
             {/* Calendar Widget */}
             <motion.div variants={itemVariants}>
-              <Card className="neumorphic-card border-none">
-                <CardHeader className="pb-6 border-b border-foreground/5 mb-6">
-                  <CardTitle className="text-3xl flex items-center gap-3 font-black uppercase tracking-tight">
-                    <CalendarDays size={32} className="text-ctu-gold" />
-                    Calendar
+              <Card className="neumorphic-card border-none overflow-hidden pb-4">
+                <CardHeader className="bg-gradient-to-r from-blue-700 to-indigo-600 text-white rounded-t-[2.1rem] border-b-4 border-ctu-gold relative overflow-hidden py-5 px-6 mb-6 flex flex-row items-center justify-between shadow-md">
+                  <CardTitle className="text-xs sm:text-sm font-black uppercase tracking-[0.2em] flex items-center gap-2">
+                    <CalendarDays size={16} className="text-ctu-gold shrink-0 h-4 w-4" />
+                    IE Timeline
                   </CardTitle>
+                  <Button 
+                    variant="ghost" 
+                    size="sm" 
+                    onClick={() => navigate('/calendar')}
+                    className="text-[10px] font-black uppercase tracking-widest text-white/90 hover:text-white hover:bg-white/10 border border-white/20 rounded-full px-4 h-7 transition-all duration-300 active:scale-95 whitespace-nowrap"
+                  >
+                    Open Sync
+                  </Button>
                 </CardHeader>
                 <CardContent className="space-y-4">
                   {CALENDAR_EVENTS.map((event) => (
@@ -679,14 +688,23 @@ export default function Dashboard() {
                 </CardContent>
               </Card>
             </motion.div>
-
+ 
             {/* Announcements */}
             <motion.div variants={itemVariants}>
-              <Card className="neumorphic-card border-none">
-                <CardHeader className="pb-6 border-b border-foreground/5 mb-6">
-                  <CardTitle className="text-3xl font-black text-ctu-gold uppercase tracking-[0.2em]">
-                    Bulletin
+              <Card className="neumorphic-card border-none overflow-hidden pb-4">
+                <CardHeader className="bg-gradient-to-r from-emerald-600 to-teal-500 text-white rounded-t-[2.1rem] border-b-4 border-ctu-gold relative overflow-hidden py-5 px-6 mb-6 flex flex-row items-center justify-between shadow-md">
+                  <CardTitle className="text-xs sm:text-sm font-black uppercase tracking-[0.2em] flex items-center gap-2">
+                    <Megaphone size={16} className="text-ctu-gold shrink-0 h-4 w-4" />
+                    News Bulletin
                   </CardTitle>
+                  <Button 
+                    variant="ghost" 
+                    size="sm" 
+                    onClick={() => navigate('/bulletin')}
+                    className="text-[10px] font-black uppercase tracking-widest text-white/90 hover:text-white hover:bg-white/10 border border-white/20 rounded-full px-4 h-7 transition-all duration-300 active:scale-95 whitespace-nowrap"
+                  >
+                    View Board
+                  </Button>
                 </CardHeader>
                 <CardContent className="space-y-4">
                   {ANNOUNCEMENTS.map((ann) => (
@@ -695,9 +713,9 @@ export default function Dashboard() {
                       onClick={() => toast.info(`Bulletin: ${ann.title}`, { description: 'Full announcement details are available at the Registrar office.' })}
                       className={cn(
                         "p-5 rounded-2xl neumorphic-raised hover:neumorphic-pressed transition-all cursor-pointer border-l-4",
-                        ann.category === 'academic' ? 'border-ctu-maroon' :
-                        ann.category === 'event' ? 'border-ctu-gold' :
-                        ann.category === 'holiday' ? 'border-blue-600' : 'border-green-600'
+                        ann.category === 'academic' ? 'border-l-ctu-maroon' :
+                        ann.category === 'event' ? 'border-l-ctu-gold' :
+                        ann.category === 'holiday' ? 'border-l-blue-600' : 'border-l-green-600'
                       )}
                     >
                       <h5 className="text-[13px] font-bold text-foreground mb-1">{ann.title}</h5>

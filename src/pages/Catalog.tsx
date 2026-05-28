@@ -137,6 +137,43 @@ import { extractSyllabusFromUrl, extractSyllabusFromFile } from '@/src/services/
 
 type SortOption = 'relevance' | 'alpha-asc' | 'alpha-desc' | 'newest';
 
+const yearHeaderConfigs: Record<YearLevel, {
+  containerClass: string;
+  badgeClass: string;
+  textColor: string;
+  glowClass: string;
+  tagClass: string;
+}> = {
+  '1st': {
+    containerClass: "bg-gradient-to-r from-ctu-maroon/[0.04] to-transparent dark:from-ctu-maroon/[0.08] dark:to-transparent border-ctu-maroon/20 dark:border-ctu-maroon/30 shadow-[inset_0_1px_1px_rgba(255,255,255,0.2)]",
+    badgeClass: "bg-ctu-maroon text-white shadow-lg shadow-ctu-maroon/20 hover:rotate-2",
+    textColor: "text-ctu-maroon dark:text-rose-400",
+    glowClass: "shadow-[0_8px_30px_rgba(133,34,34,0.04)]",
+    tagClass: "bg-ctu-maroon/10 text-ctu-maroon dark:bg-ctu-maroon/20 dark:text-rose-300"
+  },
+  '2nd': {
+    containerClass: "bg-gradient-to-r from-ctu-gold/[0.04] to-transparent dark:from-ctu-gold/[0.08] dark:to-transparent border-ctu-gold/20 dark:border-ctu-gold/30 shadow-[inset_0_1px_1px_rgba(255,255,255,0.2)]",
+    badgeClass: "bg-ctu-gold text-slate-950 shadow-lg shadow-ctu-gold/20 hover:rotate-2",
+    textColor: "text-[#b2820a] dark:text-[#f3d078]",
+    glowClass: "shadow-[0_8px_30px_rgba(212,175,55,0.04)]",
+    tagClass: "bg-ctu-gold/10 text-[#a07405] dark:bg-ctu-gold/20 dark:text-[#f3d078]"
+  },
+  '3rd': {
+    containerClass: "bg-gradient-to-r from-emerald-500/[0.03] to-transparent dark:from-emerald-500/[0.06] dark:to-transparent border-emerald-500/20 dark:border-emerald-500/30",
+    badgeClass: "bg-emerald-500 text-white shadow-lg shadow-emerald-500/20 hover:rotate-2",
+    textColor: "text-emerald-500 dark:text-emerald-400",
+    glowClass: "shadow-[0_8px_30px_rgba(16,185,129,0.03)]",
+    tagClass: "bg-emerald-500/10 text-emerald-600 dark:bg-emerald-500/20 dark:text-emerald-300"
+  },
+  '4th': {
+    containerClass: "bg-gradient-to-r from-blue-500/[0.03] to-transparent dark:from-blue-500/[0.06] dark:to-transparent border-blue-500/20 dark:border-blue-500/30",
+    badgeClass: "bg-blue-500 text-white shadow-lg shadow-blue-500/20 hover:rotate-2",
+    textColor: "text-blue-500 dark:text-blue-400",
+    glowClass: "shadow-[0_8px_30px_rgba(59,130,246,0.03)]",
+    tagClass: "bg-blue-500/10 text-blue-600 dark:bg-blue-500/20 dark:text-blue-300"
+  }
+};
+
 
 export default function Catalog() {
   const { profile, isAdmin, loading: authLoading } = useAuth();
@@ -1076,28 +1113,47 @@ export default function Catalog() {
                 const yearSubjects = filteredSubjects.filter(s => s.yearLevel === year);
                 if (yearSubjects.length === 0) return null;
 
+                const headerConfig = yearHeaderConfigs[year as YearLevel] || {
+                  containerClass: "bg-foreground/5 border-foreground/10",
+                  badgeClass: "bg-foreground text-background",
+                  textColor: "text-foreground",
+                  glowClass: "",
+                  tagClass: "bg-foreground/5 text-foreground/60"
+                };
+
                 return (
                   <div key={year} className="space-y-6">
-                    <div className="flex items-center gap-4 flex-wrap">
-                      <div className="flex items-center justify-center w-10 h-10 rounded-2xl neumorphic-pressed shadow-inner border border-foreground/5 bg-background">
-                        <span className={cn("text-base font-black", 
-                          year === '1st' ? 'text-ctu-maroon' :
-                          year === '2nd' ? 'text-ctu-gold' :
-                          year === '3rd' ? 'text-cyan-400' : 'text-emerald-400'
+                    <div className={cn(
+                      "flex items-center justify-between gap-4 flex-wrap p-4 sm:p-5 rounded-[24px] border transition-all duration-300",
+                      headerConfig.containerClass,
+                      headerConfig.glowClass
+                    )}>
+                      <div className="flex items-center gap-4">
+                        <div className={cn(
+                          "flex items-center justify-center w-12 h-12 rounded-[18px] font-black text-lg transition-transform hover:scale-105 duration-300",
+                          headerConfig.badgeClass
                         )}>
                           {year.replace('st','').replace('nd','').replace('rd','').replace('th','')}
-                        </span>
-                      </div>
-                      <div className="flex items-center gap-3">
+                        </div>
                         <div>
-                          <div className="text-[9px] font-black uppercase tracking-[0.3em] text-foreground/20 mb-0.5">Year Level</div>
-                          <h2 className="text-3xl sm:text-4xl font-display font-black tracking-tight text-foreground">
-                            {year} Year
+                          <div className="text-[9px] font-bold uppercase tracking-[0.3em] text-foreground/30 mb-0.5">Academic Track</div>
+                          <h2 className="text-xl sm:text-2xl font-black tracking-tight text-foreground flex items-center gap-2">
+                            {year} Year <span className={cn("text-xs font-semibold px-2 py-0.5 rounded-full", headerConfig.tagClass)}>Industrial Engineering</span>
                           </h2>
                         </div>
-                        <div className={cn("h-1 w-16 rounded-full ml-2 hidden sm:block", getYearBadgeColor(year as YearLevel))} />
-                        <span className="text-[9px] font-black uppercase tracking-[0.2em] text-foreground/20 bg-foreground/5 px-2 py-1 rounded-md hidden sm:block ml-2">
-                          {filteredSubjects.filter(s => s.yearLevel === year).length} subjects
+                      </div>
+                      
+                      <div className="flex items-center gap-3">
+                        <div className={cn("h-1.5 w-16 rounded-full hidden sm:block", 
+                          year === '1st' ? 'bg-ctu-maroon' :
+                          year === '2nd' ? 'bg-ctu-gold' :
+                          year === '3rd' ? 'bg-emerald-500' : 'bg-blue-500'
+                        )} />
+                        <span className={cn(
+                          "text-[9px] font-black uppercase tracking-[0.2em] px-3.5 py-1.5 rounded-full",
+                          headerConfig.tagClass
+                        )}>
+                          {filteredSubjects.filter(s => s.yearLevel === year).length} subjects cataloged
                         </span>
                       </div>
                     </div>

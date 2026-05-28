@@ -102,22 +102,29 @@ export default function Sidebar({ user, hideBranding = false, hideActions = fals
       </div>
 
       {/* Navigation */}
-      <nav className="flex-1 px-6 space-y-4 mt-4">
+      <nav className="flex-1 px-6 space-y-3 mt-4">
         {navItems.map((item) => (
           <NavLink
             key={item.path}
             to={item.path}
             className={({ isActive }) => cn(
-              "flex items-center gap-3 px-5 py-4 rounded-2xl text-sm font-bold transition-all duration-300",
+              "flex items-center gap-3 px-6 py-3.5 rounded-full text-sm font-bold transition-all duration-300 tap-target",
               isActive 
-                ? "bg-gradient-to-r from-ctu-gold to-ctu-maroon text-white shadow-lg shadow-ctu-maroon/20" 
-                : "text-foreground/60 hover:text-foreground neumorphic-raised hover:neumorphic-pressed"
+                ? "bg-gradient-to-r from-ctu-maroon to-ctu-gold text-white shadow-lg shadow-ctu-maroon/25 reference-pill-link scale-[1.02]" 
+                : "text-foreground/60 hover:text-foreground hover:bg-foreground/[0.03] rounded-full"
             )}
           >
             {({ isActive }) => (
               <>
-                <item.icon size={20} className={cn(isActive ? "text-white" : "text-foreground/40")} />
-                {item.name}
+                <item.icon size={19} className={cn(isActive ? "text-white" : "text-foreground/45")} />
+                <span className="tracking-wide">{item.name}</span>
+                {isActive && (
+                  <motion.span 
+                    layoutId="sidebarActiveIndicator"
+                    className="ml-auto w-1.5 h-1.5 rounded-full bg-white shadow-[0_0_8px_rgba(255,255,255,0.9)]" 
+                    transition={{ type: "spring", stiffness: 300, damping: 30 }}
+                  />
+                )}
               </>
             )}
           </NavLink>
@@ -127,16 +134,16 @@ export default function Sidebar({ user, hideBranding = false, hideActions = fals
           <NavLink
             to="/admin"
             className={({ isActive }) => cn(
-              "flex items-center gap-3 px-5 py-4 rounded-2xl text-sm font-bold transition-all duration-300",
+              "flex items-center gap-3 px-6 py-3.5 rounded-full text-sm font-bold transition-all duration-300 tap-target",
               isActive 
-                ? "neumorphic-pressed text-ctu-maroon" 
-                : "text-ctu-maroon/60 hover:text-ctu-maroon neumorphic-raised hover:neumorphic-pressed"
+                ? "bg-ctu-maroon text-white shadow-lg shadow-ctu-maroon/25 reference-pill-link scale-[1.02]" 
+                : "text-ctu-maroon/70 hover:text-ctu-maroon hover:bg-ctu-maroon/[0.04] rounded-full"
             )}
           >
             {({ isActive }) => (
               <>
-                <ShieldCheck size={20} className={cn(isActive ? "text-ctu-maroon" : "text-ctu-maroon/40")} />
-                Admin Portal
+                <ShieldCheck size={19} className={cn(isActive ? "text-white" : "text-ctu-maroon/45")} />
+                <span className="tracking-wide">Admin Portal</span>
               </>
             )}
           </NavLink>
@@ -144,26 +151,26 @@ export default function Sidebar({ user, hideBranding = false, hideActions = fals
       </nav>
 
       {/* User Info */}
-      <div className="p-6 border-t border-foreground/5 space-y-4">
+      <div className="p-6 border-t border-foreground/5 space-y-3">
         {!hideActions ? (
           <button 
             onClick={() => navigate('/profile')}
-            className="flex items-center gap-3 w-full text-left neumorphic-raised hover:neumorphic-pressed p-3 rounded-2xl transition-all group"
+            className="flex items-center gap-3 w-full text-left hover:bg-foreground/[0.03] p-3 rounded-3xl border border-foreground/10 transition-all duration-300 group"
           >
             <div className="w-10 h-10 rounded-full bg-ctu-gold flex items-center justify-center text-navy-deep font-bold text-sm shadow-inner group-hover:scale-110 transition-transform">
-              {user ? getInitials(user.fullName) : <User size={20} />}
+              {user ? getInitials(user.fullName) : <User size={19} />}
             </div>
             <div className="flex-1 min-w-0">
               <p className="text-sm font-bold text-foreground truncate">{user?.fullName || 'Guest'}</p>
-              <p className="text-[11px] text-foreground/40 truncate font-bold uppercase tracking-wider">{user?.idNumber || '00-00000-000'}</p>
+              <p className="text-[11px] text-foreground/45 truncate font-bold uppercase tracking-wider leading-none">{user?.idNumber || '00-00000-000'}</p>
             </div>
           </button>
         ) : (
-          <div className="p-3 rounded-2xl opacity-0 h-[64px]" /> // Placeholder to keep height consistent
+          <div className="p-3 rounded-3xl opacity-0 h-[64px]" /> // Placeholder to keep height consistent
         )}
         <button 
           onClick={handleLogout}
-          className="flex items-center gap-3 px-5 py-4 w-full rounded-2xl text-xs font-bold uppercase tracking-wider text-red-500 neumorphic-raised hover:neumorphic-pressed transition-all duration-300"
+          className="flex items-center justify-center gap-3 px-6 py-3.5 w-full rounded-full text-xs font-bold uppercase tracking-wider text-red-500 border border-red-500/20 hover:bg-red-500/5 transition-all duration-300"
         >
           <LogOut size={16} />
           Logout
